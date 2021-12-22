@@ -2,6 +2,7 @@ import express from 'express'
 import * as faceapi from 'face-api.js'
 import AuthController from './controller/AuthController'
 import bodyParser from 'body-parser'
+import { upload } from './common/multer'
 
 const app = express()
 const port = 8081
@@ -22,4 +23,5 @@ app.listen(port, async () => {
   }
 });
 
-app.get('/test', AuthController.login);
+app.post('/login', upload.single('photos') ,AuthController.login)
+app.post('/register', upload.single('photos') ,AuthController.register)

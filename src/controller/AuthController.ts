@@ -3,13 +3,14 @@ import FaceRecognition from '../services/FaceRecognition'
 
 class AuthController {
   static async register(req: Request, res: Response) {
-
+    return res.send(req.file)
   }
 
   static async login(req: Request, res: Response) {
-    const label = 'sigit'
-    const imageInput = `./images/${label}.jpg`
-    const recognize = new FaceRecognition(imageInput, label)
+    const user = req.body.user
+    const image = req.file?.filename
+    const imageInput = `./uploads/${image}`
+    const recognize = new FaceRecognition(imageInput, user)
 
     const resultRecognize = await recognize.recognize()
     res.send(resultRecognize)
