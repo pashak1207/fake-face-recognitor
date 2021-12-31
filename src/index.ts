@@ -11,6 +11,18 @@ const port = 8081
 app.use(cors())
 app.use(bodyParser.urlencoded({ extended: true, limit:'10mb' }))
 
+app.get('/', function(req, res){
+  res.sendFile(__dirname + '/index.html');
+});
+
+app.get('/signup', function(req, res){
+  res.sendFile(__dirname + '/signup.html');
+});
+
+app.get('/home', function(req, res){
+  res.sendFile(__dirname + '/home.html');
+});
+
 app.listen(port, async () => {
   console.log(`Your application is running on port ${port}.`)
   const MODEL_URL = './models'
