@@ -31,7 +31,7 @@ class FaceRecognition {
 
       return results
     } catch (error) {
-      throw new Error(`Error while detecting ${this.label}`)
+      throw new Error(`Error while detecting ${this.label}, ${error}`)
     }
 
   }

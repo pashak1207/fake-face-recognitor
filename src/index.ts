@@ -3,11 +3,13 @@ import * as faceapi from 'face-api.js'
 import AuthController from './controller/AuthController'
 import bodyParser from 'body-parser'
 import { upload } from './common/multer'
+import cors from 'cors'
 
 const app = express()
 const port = 8081
 
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(cors())
+app.use(bodyParser.urlencoded({ extended: true, limit:'10mb' }))
 
 app.listen(port, async () => {
   console.log(`Your application is running on port ${port}.`)
@@ -23,5 +25,6 @@ app.listen(port, async () => {
   }
 });
 
-app.post('/login', upload.single('photos') ,AuthController.login)
+app.post('/login', AuthController.login)
 app.post('/register', upload.single('photos') ,AuthController.register)
+
