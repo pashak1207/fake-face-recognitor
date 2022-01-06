@@ -46,7 +46,7 @@ class AuthController {
     //     }
         
     //   });     
-    return res.status(200).send('ok')
+    // return res.status(200).send('ok')
 
   }
 
