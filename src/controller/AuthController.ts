@@ -43,7 +43,7 @@ class AuthController {
     //     }
         
     //   });     
-    return res.send(req.body)
+    return res.status(200)
 
   }
 
