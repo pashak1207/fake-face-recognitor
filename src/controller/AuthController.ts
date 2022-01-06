@@ -7,7 +7,7 @@ import fs from 'fs'
 class AuthController {
   static async register(req: Request, res: Response) {
     // const idcamera = req.body.idcamera
-    // const name = req.body.name
+    const name = req.body.name
     // const email = req.body.email
     // const password = req.body.password
     const image = req.body.photos
