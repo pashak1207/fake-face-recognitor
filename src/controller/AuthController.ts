@@ -18,6 +18,7 @@ class AuthController {
 
     fs.writeFile(`./images/${fileName}.jpg`, buf, async function (err : any) {
         if (err) console.log(err)
+          return res.status(401)
         // const imageInput = `./uploads/${fileName}.jpg`
         // const recognize = new FaceRecognition(imageInput, user)
 
