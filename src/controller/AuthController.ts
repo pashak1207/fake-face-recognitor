@@ -8,6 +8,7 @@ class AuthController {
   static async register(req: Request, res: Response) {
     // const idcamera = req.body.idcamera
     const name = req.body.name
+    console.log(name)
     // const email = req.body.email
     // const password = req.body.password
     const image = req.body.photos
