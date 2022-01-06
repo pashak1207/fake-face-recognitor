@@ -69,23 +69,6 @@ class AuthController {
     } catch (error: any) {
       res.status(500).send(error.message)
     }
-
-<<<<<<< HEAD
-=======
-    const data = image.replace(/^data:image\/\w+;base64,/, "")
-    const buf = Buffer.from(data, 'base64')
-    const fileName = user + '-' + nanoid()
-
-    fs.writeFile(`./uploads/${fileName}.jpg`, buf, async function (err : any) {
-      if (err) console.log(err)
-      const imageInput = `./uploads/${fileName}.jpg`
-      const recognize = new FaceRecognition(imageInput, user)
-
-      const resultRecognize = await recognize.recognize()
-
-      res.send(resultRecognize)
-    })
->>>>>>> a0b12be5626a6a1d1a42f98728b3fc7fe7102f5e
   }
 }
 
