@@ -62,7 +62,7 @@ class AuthController {
         const imageInput = `./uploads/${fileName}.jpg`
         const recognize = new FaceRecognition(imageInput, user)
   
-        const resultRecognize = await recognize.recognize()
+        const resultRecognize = await recognize.recognize().catch(e => res.status(500).send(e.message))
         
         res.send(resultRecognize)
       })
