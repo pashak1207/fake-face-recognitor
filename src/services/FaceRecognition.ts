@@ -13,7 +13,7 @@ class FaceRecognition {
       const faceInput = await faceapi.detectAllFaces(imgInput).withFaceLandmarks().withFaceDescriptors()
 
       if (!faceInput) {
-        throw new Error(`no faces detected for ${this.label}`)
+        throw (`no faces detected for ${this.label}`)
       }
 
       const imageReference = `./images/${this.label}.jpg`
@@ -31,7 +31,7 @@ class FaceRecognition {
 
       return results
     } catch (error) {
-      throw new Error(`Error while detecting ${this.label}, ${error}`)
+      throw (`Error while detecting ${this.label}, ${error}`)
     }
 
   }
