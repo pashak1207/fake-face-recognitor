@@ -55,7 +55,7 @@ class AuthController {
       console.log('run')
       const user = req.body.user
       const image = req.body.photos
-  
+
       const data = image.replace(/^data:image\/\w+;base64,/, "")
       const buf = Buffer.from(data, 'base64')
       const fileName = user + '-' + nanoid()
@@ -64,10 +64,8 @@ class AuthController {
         if (err) console.log(err)
         const imageInput = `./uploads/${fileName}.jpg`
         const recognize = new FaceRecognition(imageInput, user)
-  
-        const resultRecognize = await recognize.recognize().catch(e=> res.status(401).send(e.message))
-        
-        return res.send(resultRecognize)
+
+        return res.send(JSON.stringify(recognize))
       })
     } catch (error: any) {
       return res.status(401).send(error.message)

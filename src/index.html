@@ -3,6 +3,7 @@
         <meta charset="utf-8">
         <title>LOGIN FACESS</title>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="jquery.min.js"></script>
         <style>
             body{
                 margin: 0;
@@ -156,14 +157,11 @@
                 var user = $('#user').val();
                 
                 $.ajax({
-                    url: "http://192.168.88.153:8081/login",
+                    url: "/login",
                     method: "POST",
                     data: {user: user, photos:imgSource},
                     dataType: "JSON",
                     beforeSend: function(){
-                    },
-                    success: function(data){
-                        console.log(data);
                     },
                     error: function(jqXHR,textStatus,errorThrown){
                         console.log('Error POST');
